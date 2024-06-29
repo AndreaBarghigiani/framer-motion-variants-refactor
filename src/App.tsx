@@ -35,6 +35,7 @@ function App() {
       <h1 className="text-4xl font-bold">Hello React & Tailwind!</h1>
       <div className="flex flex-row items-center gap-6">
         <motion.div
+          animate={`quote_${activeQuoteIndex}`}
           onPointerEnter={() => setIsPaused(true)}
           onPointerLeave={() => setIsPaused(false)}
           className="relative w-[400px] max-w-full rounded-2xl bg-white px-12 py-5"
@@ -43,6 +44,12 @@ function App() {
             {quotes.map((quote, index) => (
               <motion.img
                 key={index}
+                variants={{
+                  [`quote_${index}`]: {
+                    scale: 1.2,
+                    zIndex: 10,
+                  },
+                }}
                 // animate={{
                 //   filter:
                 //     isPaused && index !== activeQuoteIndex
