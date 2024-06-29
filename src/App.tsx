@@ -43,14 +43,14 @@ function App() {
             {quotes.map((quote, index) => (
               <motion.img
                 key={index}
-                animate={{
-                  filter:
-                    isPaused && index !== activeQuoteIndex
-                      ? 'grayscale(1)'
-                      : 'grayscale(0)',
-                  scale: activeQuoteIndex === index ? 1.2 : isPaused ? 0.9 : 1,
-                  zIndex: activeQuoteIndex === index ? 10 : 0,
-                }}
+                // animate={{
+                //   filter:
+                //     isPaused && index !== activeQuoteIndex
+                //       ? 'grayscale(1)'
+                //       : 'grayscale(0)',
+                //   scale: activeQuoteIndex === index ? 1.2 : isPaused ? 0.9 : 1,
+                //   zIndex: activeQuoteIndex === index ? 10 : 0,
+                // }}
                 className="relative -mx-2 h-12 w-12 rounded-full border border-black"
                 src={quote.image}
               />
@@ -60,11 +60,11 @@ function App() {
             {quotes.map((quote, index) => (
               <motion.blockquote
                 key={index}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{
-                  y: activeQuoteIndex === index ? 0 : 20,
-                  opacity: activeQuoteIndex === index ? 1 : 0,
-                }}
+                // initial={{ y: 20, opacity: 0 }}
+                // animate={{
+                //   y: activeQuoteIndex === index ? 0 : 20,
+                //   opacity: activeQuoteIndex === index ? 1 : 0,
+                // }}
                 className="relative [grid-area:1/1]"
               >
                 <p>{quote.text}</p>
@@ -76,14 +76,14 @@ function App() {
           </div>
           <motion.button
             onClick={previous}
-            animate={{ x: isPaused ? 0 : -20, opacity: isPaused ? 1 : 0 }}
+            // animate={{ x: isPaused ? 0 : -20, opacity: isPaused ? 1 : 0 }}
             className="absolute left-0 top-1/2 block px-3"
           >
             <ChevronLeft /> <span className="sr-only">Previous</span>
           </motion.button>
           <motion.button
             onClick={next}
-            animate={{ x: isPaused ? 0 : 20, opacity: isPaused ? 1 : 0 }}
+            // animate={{ x: isPaused ? 0 : 20, opacity: isPaused ? 1 : 0 }}
             className="absolute right-0 top-1/2 block px-3"
           >
             <ChevronRight /> <span className="sr-only">Next</span>
