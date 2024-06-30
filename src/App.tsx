@@ -35,6 +35,7 @@ function App() {
       <h1 className="text-4xl font-bold">Hello React & Tailwind!</h1>
       <div className="flex flex-row items-center gap-6">
         <motion.div
+          initial="inactive"
           animate={`quote_${activeQuoteIndex}`}
           onPointerEnter={() => setIsPaused(true)}
           onPointerLeave={() => setIsPaused(false)}
@@ -67,6 +68,10 @@ function App() {
             {quotes.map((quote, index) => (
               <motion.blockquote
                 key={index}
+                variants={{
+                  inactive: { y: 20, opacity: 0 },
+                  [`quote_${index}`]: { y: 0, opacity: 1 },
+                }}
                 // initial={{ y: 20, opacity: 0 }}
                 // animate={{
                 //   y: activeQuoteIndex === index ? 0 : 20,
