@@ -58,14 +58,6 @@ function App() {
                     filter: 'grayscale(0)',
                   },
                 }}
-                // animate={{
-                //   filter:
-                //     isPaused && index !== activeQuoteIndex
-                //       ? 'grayscale(1)'
-                //       : 'grayscale(0)',
-                //   scale: activeQuoteIndex === index ? 1.2 : isPaused ? 0.9 : 1,
-                //   zIndex: activeQuoteIndex === index ? 10 : 0,
-                // }}
                 className="relative -mx-2 h-12 w-12 rounded-full border border-black"
                 src={quote.image}
               />
@@ -79,11 +71,6 @@ function App() {
                   inactive: { y: 20, opacity: 0 },
                   [`quote_${index}`]: { y: 0, opacity: 1 },
                 }}
-                // initial={{ y: 20, opacity: 0 }}
-                // animate={{
-                //   y: activeQuoteIndex === index ? 0 : 20,
-                //   opacity: activeQuoteIndex === index ? 1 : 0,
-                // }}
                 className="relative [grid-area:1/1]"
               >
                 <p>{quote.text}</p>
@@ -99,7 +86,6 @@ function App() {
               inactive: { x: -20, opacity: 0 },
               paused: { x: 0, opacity: 1 },
             }}
-            // animate={{ x: isPaused ? 0 : -20, opacity: isPaused ? 1 : 0 }}
             className="absolute left-0 top-1/2 block px-3"
           >
             <ChevronLeft /> <span className="sr-only">Previous</span>
@@ -110,7 +96,6 @@ function App() {
               inactive: { x: 20, opacity: 0 },
               paused: { x: 0, opacity: 1 },
             }}
-            // animate={{ x: isPaused ? 0 : 20, opacity: isPaused ? 1 : 0 }}
             className="absolute right-0 top-1/2 block px-3"
           >
             <ChevronRight /> <span className="sr-only">Next</span>
