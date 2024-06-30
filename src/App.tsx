@@ -37,6 +37,7 @@ function App() {
         <motion.div
           initial="inactive"
           animate={`quote_${activeQuoteIndex}`}
+          whileHover="paused"
           onPointerEnter={() => setIsPaused(true)}
           onPointerLeave={() => setIsPaused(false)}
           className="relative w-[400px] max-w-full rounded-2xl bg-white px-12 py-5"
@@ -88,6 +89,10 @@ function App() {
           </div>
           <motion.button
             onClick={previous}
+            variants={{
+              inactive: { x: -20, opacity: 0 },
+              paused: { x: 0, opacity: 1 },
+            }}
             // animate={{ x: isPaused ? 0 : -20, opacity: isPaused ? 1 : 0 }}
             className="absolute left-0 top-1/2 block px-3"
           >
@@ -95,6 +100,10 @@ function App() {
           </motion.button>
           <motion.button
             onClick={next}
+            variants={{
+              inactive: { x: 20, opacity: 0 },
+              paused: { x: 0, opacity: 1 },
+            }}
             // animate={{ x: isPaused ? 0 : 20, opacity: isPaused ? 1 : 0 }}
             className="absolute right-0 top-1/2 block px-3"
           >
