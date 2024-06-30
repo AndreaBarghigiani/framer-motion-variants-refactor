@@ -37,7 +37,7 @@ function App() {
         <motion.div
           initial="inactive"
           animate={`quote_${activeQuoteIndex}`}
-          whileHover="paused"
+          whileHover={['paused', `quote_${activeQuoteIndex}_highlighted`]}
           onPointerEnter={() => setIsPaused(true)}
           onPointerLeave={() => setIsPaused(false)}
           className="relative w-[400px] max-w-full rounded-2xl bg-white px-12 py-5"
@@ -50,6 +50,12 @@ function App() {
                   [`quote_${index}`]: {
                     scale: 1.2,
                     zIndex: 10,
+                  },
+                  paused: {
+                    filter: 'grayscale(1)',
+                  },
+                  [`quote_${index}_highlighted`]: {
+                    filter: 'grayscale(0)',
                   },
                 }}
                 // animate={{
